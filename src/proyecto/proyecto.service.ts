@@ -24,7 +24,16 @@ export class ProyectoService {
         return proyecto.estudiante;
     }
 
-    
+    async avanzarProyecto(id: number): Promise<ProyectoEntity> {
+        const proyecto = await this.proyectoRepository.findOne({ where: { id } });
+        if (!proyecto) throw new Error('No se encuentra el proyecto');
+        if (proyecto.estado >= 4) throw new Error('El proyecto ya está en su estado máximo');
+        proyecto.estado += 1;
+        return await this.proyectoRepository.save(proyecto);
+    }
+
+
+
 
 
 }
