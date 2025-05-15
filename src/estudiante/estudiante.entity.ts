@@ -1,4 +1,5 @@
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { ProyectoEntity } from 'src/proyecto/proyecto.entity';
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
 
 
 @Entity()   
@@ -17,5 +18,8 @@ export class EstudianteEntity {
 
     @Column({type: 'int'})
     promedio: number;
+
+    @OneToMany(() => ProyectoEntity, proyecto => proyecto.estudiante)
+    proyectos: ProyectoEntity[];
 
 }
