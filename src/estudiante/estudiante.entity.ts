@@ -15,6 +15,7 @@ export class EstudianteEntity {
     @Column()
     programa: string;
 
-    @Column()
+    @Column({type: 'int'})
+    promedio: number;
 
 }
