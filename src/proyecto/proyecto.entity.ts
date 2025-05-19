@@ -1,6 +1,6 @@
-import { EstudianteEntity } from 'src/estudiante/estudiante.entity';
-import { EvaluacionEntity } from 'src/evaluacion/evaluacion.entity';
-import { ProfesorEntity } from 'src/profesor/profesor.entity';
+import { EstudianteEntity } from '../estudiante/estudiante.entity';
+import { EvaluacionEntity } from '../evaluacion/evaluacion.entity';
+import { ProfesorEntity } from '../profesor/profesor.entity';
 import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, OneToMany } from 'typeorm';
 
 @Entity()
