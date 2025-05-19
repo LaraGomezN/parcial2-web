@@ -10,7 +10,7 @@ import { EvaluacionEntity } from './evaluacion.entity';
 describe('EvaluacionService', () => {
  let service: EvaluacionService;
  let repository: Repository<EvaluacionEntity>;
-let evaluacionesList: EvaluacionEntity[];
+ let evaluacionesList: EvaluacionEntity[];
 
  beforeEach(async () => {
    const module: TestingModule = await Test.createTestingModule({

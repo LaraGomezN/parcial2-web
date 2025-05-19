@@ -9,6 +9,7 @@ import { ProfesorEntity } from './profesor.entity';
 describe('ProfesorService', () => {
  let service: ProfesorService;
  let repository: Repository<ProfesorEntity>;
+  let profesoresList: ProfesorEntity[];
 
  beforeEach(async () => {
    const module: TestingModule = await Test.createTestingModule({

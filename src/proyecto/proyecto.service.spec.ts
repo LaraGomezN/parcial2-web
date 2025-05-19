@@ -8,6 +8,7 @@ import { ProyectoEntity } from './proyecto.entity';
 describe('ProyectoService', () => {
  let service: ProyectoService;
  let repository: Repository<ProyectoEntity>;
+  let proyectosList: ProyectoEntity[];
 
  beforeEach(async () => {
    const module: TestingModule = await Test.createTestingModule({

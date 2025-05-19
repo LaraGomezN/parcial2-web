@@ -42,6 +42,7 @@ describe('EstudianteService', () => {
    expect(service).toBeDefined();
  });
 
+ //Caso positivo crearEstudiante
  it('crearEstudiante should return a new estudiante', async () => {
     const estudiante: EstudianteEntity = {
       id: 0,
@@ -63,11 +64,34 @@ describe('EstudianteService', () => {
     expect(newEstudiante.promedio).toEqual(estudiante.promedio);
   });
 
+  //Caso negativo crearEstudiante
+  it('crearEstudiante should throw an error if promedio <= 3.2 and semestre < 4', async () => {
+  const estudiante: EstudianteEntity = {
+    id: 0,
+    cedula: faker.number.int({ min: 10000000, max: 99999999 }),
+    nombre: faker.person.fullName(),
+    semestre: 2, // menor a 4
+    programa: faker.lorem.word(),
+    promedio: 3, // menor o igual a 3.2
+    proyectos: []
+  };
+
+  await expect(service.crearEstudiante(estudiante)).rejects.toHaveProperty('message', 'El estudiante no puede ser creado porque su promedio es menor a 3.2 y su semestre es menor a 4');
+});
+
+  //Caso positivo eliminarEstudiante
   it('eliminarEstudiante should delete a estudiante', async () => {
     const estudiante: EstudianteEntity = estudiantesList[0];
     await service.eliminarEstudiante(estudiante.id);
     const deletedEstudiante = await repository.findOneBy({ id: estudiante.id });
     expect(deletedEstudiante).toBeNull();
+  });
+
+  //Caso negativo eliminarEstudiante
+  it('eliminarEstudiante should throw an exception for an invalid estudiante', async () => {
+    const estudiante: EstudianteEntity = estudiantesList[0];
+    await service.eliminarEstudiante(estudiante.id);
+    await expect(() => service.eliminarEstudiante(estudiante.id)).rejects.toHaveProperty('message', 'El estudiante no existe');
   });
 
 });
