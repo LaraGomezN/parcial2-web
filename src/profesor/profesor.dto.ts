@@ -19,5 +19,5 @@ export class ProfesorDto {
 
     @IsNotEmpty()
     @IsBoolean()
-    esParEvaluado: boolean;
+    esParEvaluador: boolean;
 }

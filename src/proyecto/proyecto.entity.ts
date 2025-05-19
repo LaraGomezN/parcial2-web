@@ -30,12 +30,14 @@ export class ProyectoEntity {
     fechaFin:string;
 
     @ManyToOne(() => ProfesorEntity, profesor => profesor.proyectos)
-    profesor: ProfesorEntity;
+    profesor?: ProfesorEntity;
 
-    @OneToMany(() => EvaluacionEntity, evauacion => evauacion.proyecto)
+    @OneToMany(() => EvaluacionEntity, evauacion => evauacion.proyecto, {nullable: true})
     evaluaciones: EvaluacionEntity[];
 
-    @ManyToOne(() => EstudianteEntity, estudiante => estudiante.proyectos)
-    estudiante: EstudianteEntity;
+    
+    @ManyToOne(() => EstudianteEntity, estudiante => estudiante.proyectos, {nullable: true})
+    estudiante?: EstudianteEntity;
+
 
 }

@@ -16,8 +16,8 @@ export class ProfesorController {
         return await this.profesorService.crearProfesor(profesor);
     }
 
-    @Post(':id/:idEvaluador')
-    async asignarEvaluador(@Param('id') id: number, @Param('idEvaluador') idEvaluador: number) {
-        return await this.profesorService.asignarEvaluador(id, idEvaluador);
+    @Post(':id/asignar-evaluador')
+    async asignarEvaluador(@Param('id') id: number): Promise<void> {
+        return await this.profesorService.asignarEvaluador(id);
     }
 }
