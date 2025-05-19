@@ -7,6 +7,9 @@ export class EstudianteEntity {
     @PrimaryGeneratedColumn('increment')
     id: number;
 
+    @Column({type: 'int'})
+    cedula: number;
+
     @Column()
     nombre: string;
 
